@@ -1,0 +1,14 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: webhook-rhdh-demo-app-el 
+spec:
+  tls:
+    termination: edge
+  to:
+    kind: Service
+    name: el-rhdh-demo-app-listener
+    weight: 100
+  port:
+    targetPort: http-listener
+  wildcardPolicy: None
